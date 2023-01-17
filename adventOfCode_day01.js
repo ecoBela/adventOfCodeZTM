@@ -18,10 +18,8 @@ fs.readFile("./data.txt", (err, data) => {
 
   console.log(openBracketCount - closedBracketCount);
   console.timeEnd("Fun exercise");
-  return openBracketCount - closedBracketCount;
 });
 
-// how to count the instances of each open bracket and each closing bracket
-// store each count
-// subtrack the closing from the opening counts
-// answer tells you the floor that santa is in
+// Which floor is Santa on? In the attached data file "(" means +1; and ')' means -1.  Read
+// the file and work out which floor Santa is on if he starts his journey on the ground floor.
+// Use node to read the file
