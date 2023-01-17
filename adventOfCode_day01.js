@@ -4,20 +4,20 @@ const fs = require("fs");
 // Use node to read the file  CORRECT ANSWER: 74
 
 fs.readFile("./data.txt", (err, data) => {
-  console.time("Fun exercise");
-  let openBracketCount = 0;
-  let closedBracketCount = 0;
+  console.time("Fun exercise Q1");
+  let bracketCount = 0;
   const parsedData = data.toString();
   const arrayData = parsedData.split("");
   arrayData.map((item) => {
     if (item === "(") {
-      openBracketCount++;
+      bracketCount++;
     } else if (item === ")") {
-      closedBracketCount++;
+      bracketCount--;
     }
   });
-  console.log(openBracketCount - closedBracketCount); // This returns 74
-
+  console.log("floor: ", bracketCount); // This returns...74
+  console.timeEnd("Fun exercise Q1");
+  console.time("Fun exercise Q2");
   let floor = 0;
   arrayData.some((item, index) => {
     if (item === "(") {
@@ -29,14 +29,7 @@ fs.readFile("./data.txt", (err, data) => {
     return floor === -1; // exits function when this condition is first met
   });
 
-  //   map over each item; for each item in the array, if '(' then
-  // let floor =+ 1; check the value of floor.if floor = -1 then
-  // console log the item and the index position of that item
-  // and if ')' then let floor =- 1
-  //
-  //
-
-  console.timeEnd("Fun exercise");
+  console.timeEnd("Fun exercise Q2");
 });
 
 // What is the position of the character that gets Santa to the basement for the first time?
