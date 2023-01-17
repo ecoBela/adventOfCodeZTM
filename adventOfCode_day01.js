@@ -5,7 +5,6 @@ const fs = require("fs");
 
 fs.readFile("./data.txt", (err, data) => {
   console.time("Fun exercise");
-
   let openBracketCount = 0;
   let closedBracketCount = 0;
   const parsedData = data.toString();
@@ -13,26 +12,20 @@ fs.readFile("./data.txt", (err, data) => {
   arrayData.map((item) => {
     if (item === "(") {
       openBracketCount++;
-    }
-    if (item === ")") {
+    } else if (item === ")") {
       closedBracketCount++;
     }
   });
-
   console.log(openBracketCount - closedBracketCount); // This returns 74
 
   let floor = 0;
   arrayData.some((item, index) => {
     if (item === "(") {
       floor++;
-    }
-    if (item === ")") {
+    } else if (item === ")") {
       floor--;
     }
-    if (floor === -1) {
-      //   console.log(item, index);
-      console.log(index + 1, "position"); // this returns 1795
-    }
+    floor === -1 && console.log("position: ", index + 1); // this returns 1795
     return floor === -1; // exits function when this condition is first met
   });
 
